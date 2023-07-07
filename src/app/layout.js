@@ -1,3 +1,4 @@
+import './globals.css'
 
 // products provider
 import ProductProvider from "@/context/ProductsContext";

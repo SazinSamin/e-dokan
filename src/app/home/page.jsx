@@ -1,17 +1,32 @@
-'use client';
+"use client";
 
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductsContext";
+import ProductComponent from "@/components/Products";
 
-export default function Home () {
-
+export default function Home() {
   // using products context for get the products list
   const { products } = useContext(ProductContext);
-  console.log(products);
+  // console.log(products);
 
-  return <div>
-    {products.map(product => {
-      return <p>{product.title}</p>
-    })}
-  </div>
+  return (
+    <div className="flex flex-col">
+      <section className="py-16">
+        <div className=" container">
+          <div
+            className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+            xl:grid-col-5 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0"
+          >
+            {products.map((product) => {
+              return (
+                <div className=" bg-slate-500 h-56 w-56 m-10 rounded-md">
+                  <ProductComponent product={product} key={product.id} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
