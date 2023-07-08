@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductsContext";
 import ProductComponent from "@/components/Products";
+import Sidebar from "@/components/Sidebar";
 
 export default function Home() {
   // using products context for get the products list
@@ -19,7 +20,7 @@ export default function Home() {
           >
             {products.map((product) => {
               return (
-                <div className=" bg-slate-500 h-56 w-56 m-10 rounded-md">
+                <div className="">
                   <ProductComponent product={product} key={product.id} />
                 </div>
               );

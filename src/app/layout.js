@@ -1,8 +1,12 @@
-import './globals.css'
+import SidebarProvider from "@/context/SidebarContext";
+import "./globals.css";
 
 // products provider
 import ProductProvider from "@/context/ProductsContext";
-
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+import CartContext from "@/context/CartContext";
+// sidebar provider
 
 export const metadata = {
   title: "e-dokan",
@@ -13,7 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ProductProvider>{children}</ProductProvider>
+        <SidebarProvider>
+          <CartContext>
+            <ProductProvider>{children}</ProductProvider>
+          </CartContext>
+        </SidebarProvider>
       </body>
     </html>
   );
