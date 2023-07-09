@@ -7,7 +7,7 @@ import CartItem from "./CartItem";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart, clearCart, total } = useContext(CartContext);
 
   //console.log(cart);
 
@@ -39,7 +39,7 @@ const Sidebar = () => {
         </div>
         <div className="  bg-slate-400 rounded-lg pl-2 flex w-full justify-between items-center">
           <div>
-            <span>TOTAL: 1000  ৳</span>
+            <span>TOTAL: {total}  ৳</span>
           </div>
           <div onClick={()=>{clearCart()}} className="cursor-pointer py-4 bg-red-600 rounded-lg	 text-white w-12 h-12 flex justify-center items-center text-x1 ">
             <FaTrashAlt />
