@@ -5,6 +5,7 @@ import axios from "axios";
 import { redirect } from "next/dist/server/api-utils";
 
 const LoginPage = () => {
+
   const [mobileNumber, setMobileNumber] = useState("");
   const [name, setName] = useState("");
 
@@ -18,9 +19,11 @@ const LoginPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+  
+    
     try {
-      // Make a request to the backend to authenticate the user
-      const response = await axios.post("/api/login", {
+      // Make request to the backend to authenticate the user
+      const response = await axios.post("", {
         mobileNumber,
         name,
       });
@@ -33,13 +36,13 @@ const LoginPage = () => {
       setMobileNumber("");
       setName("");
 
-      // Redirect to the protected page
-      window.location.href = "/protected";
+      // Redirect to the home page
+      window.location.href = "/registration";
     } catch (error) {
       console.error(error);
       // Handle authentication error
     }
-    redirect('/registration')
+    //res.redirect('/registration')
   };
 
   return (
@@ -85,13 +88,13 @@ const LoginPage = () => {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline"
           >
             Log In
           </button>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline"
           >
             Sign Up
           </button>

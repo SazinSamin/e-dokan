@@ -12,6 +12,7 @@ import { CartContext } from "@/context/CartContext";
 import Link from "next/link";
 
 const Header = () => {
+
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);
 
@@ -43,12 +44,12 @@ const Header = () => {
         </div>
         <div className="flex item-center justify-center">
           <Link href={"/sign"}>
-            <div className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <div className="bg-blue-500 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded-3xl">
               <button>Sign In</button>
             </div>
           </Link>
           <Link href={"/sign"}>
-            <div className="ml-2 mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <div className="ml-2 mr-2 bg-blue-500 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded-3xl">
               <button>Sign Up</button>
             </div>
           </Link>
