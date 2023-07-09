@@ -24,7 +24,7 @@ export default function Product({ params }) {
 
   return (
     <section>
-      <div className="container mx-auto pt-20">
+      <div className="container mx-auto pt-20 ">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="flex flex-1 justify-center items-center mb-10 lg:mb-0">
             <img

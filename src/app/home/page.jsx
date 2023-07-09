@@ -11,11 +11,11 @@ export default function Home() {
   // console.log(products);
   
   return (
-    <div className="flex flex-col">
+    <div className=" bg-slate-100 flex flex-col">
       <section className="py-16">
         <div className=" container ml-9">
           <div
-            className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+            className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
             xl:grid-col-5 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0"
           >
             {products.map((product) => {

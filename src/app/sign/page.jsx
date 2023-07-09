@@ -1,6 +1,8 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
+import axios from "axios";
+import { redirect } from "next/dist/server/api-utils";
 
 const LoginPage = () => {
   const [mobileNumber, setMobileNumber] = useState("");
@@ -14,14 +16,30 @@ const LoginPage = () => {
     setName(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Perform login logic here
-    console.log("Mobile Number:", mobileNumber);
-    console.log("Name:", name);
-    // Reset the form
-    setMobileNumber("");
-    setName("");
+    try {
+      // Make a request to the backend to authenticate the user
+      const response = await axios.post("/api/login", {
+        mobileNumber,
+        name,
+      });
+      const token = response.data.token;
+
+      // Store the JWT token in local storage
+      localStorage.setItem("token", token);
+
+      // Reset the form
+      setMobileNumber("");
+      setName("");
+
+      // Redirect to the protected page
+      window.location.href = "/protected";
+    } catch (error) {
+      console.error(error);
+      // Handle authentication error
+    }
+    redirect('/registration')
   };
 
   return (

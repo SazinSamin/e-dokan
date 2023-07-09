@@ -10,7 +10,7 @@ const ProductComponent = ({ product }) => {
 
   return (
     <div>
-      <div className=" border border-[#1b12251f] rounded-lg	 h-[300px] mb-4 relative overflow-hidden group transition">
+      <div className=" bg-slate-300 border border-[#1b12251f] rounded-lg	 h-[300px] mb-4 relative overflow-hidden group transition">
         <div className="w-full rounded-lg	 h-full flex justify-center items-center ">
           {/*image*/}
           <div className="w-[200px] mx-auto flex justify-center">
