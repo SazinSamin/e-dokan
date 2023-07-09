@@ -1,4 +1,3 @@
-
 import SidebarProvider from "@/context/SidebarContext";
 import "./globals.css";
 
@@ -8,6 +7,7 @@ import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import CartContext from "@/context/CartContext";
 import Footer from "@/components/Footer";
+import AuthenticationProvider from "@/context/AuthenticationContext";
 // sidebar provider
 
 export const metadata = {
@@ -19,13 +19,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SidebarProvider>
-          <CartContext>
-            <ProductProvider>
-              {children}
-            </ProductProvider>
-          </CartContext>
-        </SidebarProvider>
+        <AuthenticationProvider>
+          <SidebarProvider>
+            <CartContext>
+              <ProductProvider>{children}</ProductProvider>
+            </CartContext>
+          </SidebarProvider>
+        </AuthenticationProvider>
       </body>
     </html>
   );

@@ -1,10 +1,13 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { redirect } from "next/dist/server/api-utils";
+import { AuthenticationContext } from "@/context/AuthenticationContext";
 
 const LoginPage = () => {
+
+  const { setIsAuthenticate } = useContext(AuthenticationContext);
 
   const [mobileNumber, setMobileNumber] = useState("");
   const [name, setName] = useState("");
@@ -36,14 +39,23 @@ const LoginPage = () => {
       setMobileNumber("");
       setName("");
 
+      // set user authentication true
+      setIsAuthenticate(true);
+
       // Redirect to the home page
       window.location.href = "/registration";
+      
     } catch (error) {
       console.error(error);
       // Handle authentication error
     }
     //res.redirect('/registration')
   };
+
+  const handleLogIn = () => {
+    window.location.href = "/home";
+    setIsAuthenticate(true);
+  }
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
@@ -86,7 +98,7 @@ const LoginPage = () => {
           />
         </div>
         <div className="flex items-center justify-between">
-          <button
+          <button onClick={handleLogIn}
             type="submit"
             className="bg-blue-500 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline"
           >
