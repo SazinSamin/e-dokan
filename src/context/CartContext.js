@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
@@ -74,6 +74,18 @@ const CartProvider = ({ children }) => {
       removeFromCart(id);
     }
   };
+
+
+
+  // increase curt item amount
+  useEffect(()=>{
+    if(cart) {
+      const amount = cart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.amount;
+      }, 0);
+      setItemAmount(amount);
+    }
+  }, [cart]);
 
   return (
     <CartContext.Provider
