@@ -19,7 +19,10 @@ export default function RootLayout({ children }) {
       <body>
         <SidebarProvider>
           <CartContext>
-            <ProductProvider>{children}</ProductProvider>
+            <ProductProvider>
+              <Header />
+              {children}
+            </ProductProvider>
           </CartContext>
         </SidebarProvider>
       </body>
