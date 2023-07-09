@@ -20,8 +20,8 @@ export default function Home() {
           >
             {products.map((product) => {
               return (
-                <div className="">
-                  <ProductComponent product={product} key={product.id} />
+                <div key={product.id} className="">
+                  <ProductComponent  product={product}  />
                 </div>
               );
             })}

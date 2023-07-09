@@ -1,4 +1,4 @@
-import CartContext from "@/context/CartContext";
+import { CartContext } from "@/context/CartContext";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { GrAdd, GrFormView } from "react-icons/gr";
@@ -6,10 +6,12 @@ import { GrAdd, GrFormView } from "react-icons/gr";
 const ProductComponent = ({ product }) => {
   //console.log(product);
 
+  const {addToCart} = useContext(CartContext);
+
   return (
     <div>
-      <div className=" border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition">
-        <div className="w-full h-full flex justify-center items-center">
+      <div className=" border border-[#1b12251f] rounded-lg	 h-[300px] mb-4 relative overflow-hidden group transition">
+        <div className="w-full rounded-lg	 h-full flex justify-center items-center ">
           {/*image*/}
           <div className="w-[200px] mx-auto flex justify-center">
             <img
@@ -19,9 +21,11 @@ const ProductComponent = ({ product }) => {
             ></img>
           </div>
         </div>
-        <div className="absolute top-2 -right-1 group-hover:right-2 p-2 opacity-0  group-hover:opacity-100 flex flex-col item-center justify-center gap-y-2 transition-all duration-300">
+        <div className="absolute  top-2 -right-1 group-hover:right-2 p-2 opacity-0  group-hover:opacity-100 flex flex-col item-center justify-center gap-y-2 transition-all duration-300">
           <button>
-            <div className="flex justify-center items-center bg-white w-10 h-10">
+            <div onClick={()=>{
+              addToCart(product)
+            }} className="flex justify-center items-center bg-white w-10 h-10">
               <GrAdd className="text-3x1" />
             </div>
             <Link href={`/product/${product.id}`}>
