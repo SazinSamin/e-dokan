@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductsContext";
@@ -11,17 +11,14 @@ export default function Home() {
   // console.log(products);
   
   return (
-    <div className=" bg-slate-100 flex flex-col">
+    <div className="bg-slate-100 flex flex-col">
       <section className="py-16">
-        <div className=" container ml-9">
-          <div
-            className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-            xl:grid-col-5 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0"
-          >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {products.map((product) => {
               return (
-                <div key={product.id} className="">
-                  <ProductComponent  product={product}  />
+                <div key={product.id}>
+                  <ProductComponent product={product} />
                 </div>
               );
             })}
