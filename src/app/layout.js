@@ -1,3 +1,4 @@
+
 import SidebarProvider from "@/context/SidebarContext";
 import "./globals.css";
 
@@ -6,6 +7,7 @@ import ProductProvider from "@/context/ProductsContext";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import CartContext from "@/context/CartContext";
+import Footer from "@/components/Footer";
 // sidebar provider
 
 export const metadata = {
@@ -20,7 +22,6 @@ export default function RootLayout({ children }) {
         <SidebarProvider>
           <CartContext>
             <ProductProvider>
-              <Header />
               {children}
             </ProductProvider>
           </CartContext>

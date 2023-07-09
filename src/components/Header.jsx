@@ -2,6 +2,8 @@
 
 import logo from "../utility/shop-svgrepo-com.svg";
 
+import Image from "next/image";
+
 import { FaShoppingBag } from "react-icons/fa";
 
 import { SidebarContext } from "@/context/SidebarContext";
@@ -29,20 +31,24 @@ const Header = () => {
       } fixed w-full z-10 transition-all`}
     >
       <div className="container mx-auto flex item-center justify-between h-full p-2">
-        <h3 className="text-lg font-bold italic">e-dokan</h3>
-        <Link href={"/"}>
-          <div>
-            <img src={logo}></img>
-          </div>
-        </Link>
+        <div className="flex item-center justify-center items-center">
+          <Link href={"/sign"}>
+            <div>
+              <Image src={logo} height={30} width={40}></Image>
+            </div>
+          </Link>
+          <h3 className="text-lg font-bold italic">
+            <Link href="/home">e-dokan</Link>
+          </h3>
+        </div>
         <div className="flex item-center justify-center">
-          <Link href={"/"}>
-            <div className="pr-0">
+          <Link href={"/sign"}>
+            <div className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
               <button>Sign In</button>
             </div>
           </Link>
-          <Link href={"/"}>
-            <div className="pr-0">
+          <Link href={"/sign"}>
+            <div className="ml-2 mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
               <button>Sign Up</button>
             </div>
           </Link>
@@ -52,8 +58,8 @@ const Header = () => {
               setIsOpen(!isOpen);
             }}
           >
-            <FaShoppingBag className="w-7 h-7" />
-            <div className="bg-red-500 absolute -right-3 -bottom-1 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
+            <FaShoppingBag className="w-7 h-10" />
+            <div className="bg-red-500 absolute -right-2 -bottom-1 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
               {itemAmount}
             </div>
           </div>

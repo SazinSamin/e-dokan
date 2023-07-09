@@ -10,7 +10,6 @@ const HomeLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <Hero />
       <Sidebar />
       {children}
       <Footer />

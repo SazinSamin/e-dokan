@@ -9,9 +9,7 @@ export default function Home() {
   // using products context for get the products list
   const { products } = useContext(ProductContext);
   // console.log(products);
-
   
-
   return (
     <div className="flex flex-col">
       <section className="py-16">

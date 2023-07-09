@@ -11,6 +11,7 @@ const HomeLayout = ({ children }) => {
     <div>
       <Header />
       <Hero />
+
       <Sidebar />
       {children}
       <Footer />
